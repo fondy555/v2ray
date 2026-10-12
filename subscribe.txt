@@ -1,1 +1,2 @@
 vless://40b50fd6-a4fb-40fb-a587-0dff773807ff@148.135.118.230:18770?encryption=mlkem768x25519plus.native.0rtt.WgmFXoein0o56-l0qeWJmXlrM2ECHsJU-6hXs7h_ST8&security=none&type=tcp&headerType=http&path=%2F#vless
+vless://6086c4e7-28d6-423c-9365-f12b4c3da7d2@148.135.118.230:58792?encryption=none&security=tls&sni=fondy.space&fp=chrome&alpn=h2%2Chttp%2F1.1&type=xhttp&host=fondy.space&path=%2F&mode=auto&extra=%7B%22mode%22%3A%22auto%22%2C%22xPaddingBytes%22%3A%22100-1000%22%7D#xhttp
