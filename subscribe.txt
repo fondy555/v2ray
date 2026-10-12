@@ -1,1 +1,1 @@
-vless://40b50fd6-a4fb-40fb-a587-0dff773807ff@fondy.space:18770?type=tcp&encryption=mlkem768x25519plus.native.0rtt.WgmFXoein0o56-l0qeWJmXlrM2ECHsJU-6hXs7h_ST8&path=%2F&headerType=http&security=none#vless
+vless://40b50fd6-a4fb-40fb-a587-0dff773807ff@148.135.118.230:18770?encryption=mlkem768x25519plus.native.0rtt.WgmFXoein0o56-l0qeWJmXlrM2ECHsJU-6hXs7h_ST8&security=none&type=tcp&headerType=http&path=%2F#vless
