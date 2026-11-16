@@ -73,7 +73,7 @@ def get_ips():
 
 def build():
 
-    nodes = []
+    nodes = [TEMPLATE]
 
     for addr,country in get_ips():
 
@@ -90,7 +90,6 @@ def build():
         )
 
         nodes.append(node)
-    nodes.append(TEMPLATE)
 
     with open(
         "subscribe.txt",
