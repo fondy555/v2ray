@@ -3,8 +3,7 @@ import re
 
 
 SOURCE_URLS = [
-    "https://bestcf.pages.dev/gslege/Cfxyz.txt",
-    "https://bestcf.pages.dev/random-region/mix.txt"
+    "https://bestcf.pages.dev/gslege/Cfxyz.txt"
 ]
 
 
@@ -91,7 +90,7 @@ def build():
         )
 
         nodes.append(node)
-
+    nodes.append(TEMPLATE)
 
     with open(
         "subscribe.txt",
