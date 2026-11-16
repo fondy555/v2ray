@@ -2,7 +2,11 @@ import requests
 import re
 
 
-SOURCE_URL = "https://ips.gaoji.uk/best_ips.txt"
+SOURCE_URLS = [
+    "https://bestcf.pages.dev/gslege/Cfxyz.txt",
+    "https://bestcf.pages.dev/random-region/mix.txt"
+]
+
 
 
 TEMPLATE = (
@@ -10,54 +14,59 @@ TEMPLATE = (
     "type=xhttp&encryption=none&path=%2F&host=fondy.space&mode=auto&"
     "x_padding_bytes=100-1000&extra=%7B%22mode%22%3A%22auto%22%2C%22xPaddingBytes%22%3A%22100-1000%22%7D&"
     "security=tls&fp=chrome&alpn=http%2F1.1%2Ch3%2Ch2&sni=fondy.space"
-    "#优选IP-BR"
+    "#优选IP"
 )
 
 
 def get_ips():
 
-    r = requests.get(
-        SOURCE_URL,
-        timeout=20
-    )
-
-    r.encoding = "utf-8"
-
     result = []
     seen = set()
 
+    pattern = (
+        r'(\d+\.\d+\.\d+\.\d+):(\d+)#地区随机\s*\|\s*([^\n]+)'
+        r'|'
+        r'(\d+\.\d+\.\d+\.\d+):(\d+)(#Gslege优选[^\n]*)'
+    )
 
-    for line in r.text.splitlines():
+    for url in SOURCE_URLS:
 
-        m = re.search(
-            r"(\d+\.\d+\.\d+\.\d+):(\d+)#([A-Z]{2})",
-            line
-        )
+        try:
+            r = requests.get(url, timeout=20)
+            r.raise_for_status()
+            r.encoding = "utf-8"
 
-        if not m:
+        except requests.RequestException as e:
+            print(f"获取失败: {url} -> {e}")
             continue
 
+        for line in r.text.splitlines():
 
-        ip = m.group(1)
-        port = m.group(2)
-        country = m.group(3)
+            m = re.search(pattern, line)
 
+            if not m:
+                continue
 
-        addr = f"{ip}:{port}"
+            if m.group(1):
+                # 地区随机
+                ip = m.group(1)
+                port = m.group(2)
+                country = m.group(3)
 
+            else:
+                # Gslege优选
+                ip = m.group(4)
+                port = m.group(5)
+                country = m.group(6)
 
-        if addr in seen:
-            continue
+            addr = f"{ip}:{port}"
 
+            if addr in seen:
+                continue
 
-        seen.add(addr)
+            seen.add(addr)
 
-        result.append(
-            (
-                addr,
-                country
-            )
-        )
+            result.append((addr, country))
 
     return result
 
@@ -77,8 +86,8 @@ def build():
         )
 
         node = node.replace(
-            "#优选IP-BR",
-            f"#优选IP-{country}"
+            "#优选IP",
+            f"#{country}"
         )
 
         nodes.append(node)
