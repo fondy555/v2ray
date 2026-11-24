@@ -9,10 +9,10 @@ SOURCE_URLS = [
 
 
 TEMPLATE = (
-    "vless://f344ee9c-0804-46bd-8c35-b2e2e89734c9@fondy.space:443?"
-    "type=xhttp&encryption=none&path=%2F&host=fondy.space&mode=auto&"
-    "x_padding_bytes=100-1000&extra=%7B%22mode%22%3A%22auto%22%2C%22xPaddingBytes%22%3A%22100-1000%22%7D&"
-    "security=tls&fp=chrome&alpn=http%2F1.1%2Ch3%2Ch2&sni=fondy.space"
+    "vless://f344ee9c-0804-46bd-8c35-b2e2e89734c9@fondy.us.ci:443?"
+    "encryption=none&security=tls&sni=fondy.us.ci&fp=chrome&"
+    "alpn=http%2F1.1%2Ch3%2Ch2&type=xhttp&host=fondy.us.ci&path=%2F&mode=auto&"
+    "extra=%7B%22mode%22%3A%22auto%22%2C%22xPaddingBytes%22%3A%22100-1000%22%7D"
     "#优选IP"
 )
 
