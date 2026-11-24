@@ -70,7 +70,8 @@ def get_ips():
 
 def build():
 
-    nodes = [TEMPLATE]
+    nodes = ["vless://812803a8-b432-44cd-b33d-88e449acebcc@148.135.118.230:9527?encryption=mlkem768x25519plus.native.0rtt.sboUpcGvRIOrDsWcYygzLoA5DP0dqroI67x-5KFPx2U&security=none&type=httpupgrade&path=%2F#httpupgrade"]
+    nodes.append(TEMPLATE)
 
     for addr,country in get_ips():
 
