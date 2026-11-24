@@ -80,7 +80,7 @@ def build():
         node = TEMPLATE
 
         node = node.replace(
-            "fondy.space:443",
+            "fondy.us.ci:443",
             addr
         )
 
