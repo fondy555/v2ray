@@ -78,7 +78,7 @@ def build():
         node = TEMPLATE
 
         node = node.replace(
-            "fondy.us.ci:443",
+            "jerry3.cc.cd:443",
             addr
         )
 
